@@ -27,6 +27,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, svg { display: block; max-width: 100%; }
+img { height: auto; }
 a { color: inherit; }
 
 .container { width: min(1140px, 100% - 40px); margin-inline: auto; }
@@ -95,12 +96,6 @@ h3 { font-size: 1.3rem; }
 .hero-garantias { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin-top: 1.8rem; color: var(--verde); font-weight: 700; font-size: .95rem; }
 
 .hero-arte { position: relative; }
-.cartao-ilustra {
-  background: #fff; border-radius: 36px; padding: 1.5rem; box-shadow: var(--sombra);
-  transform: rotate(-2deg);
-}
-.pulsar { transform-origin: 232px 270px; animation: pulsar 1.8s ease-in-out infinite; }
-@keyframes pulsar { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.12); } 30% { transform: scale(1); } 45% { transform: scale(1.08); } }
 .flutuante {
   position: absolute; background: #fff; border-radius: 16px; padding: .6rem .95rem;
   font-weight: 800; font-size: .9rem; color: var(--verde-escuro);
@@ -297,4 +292,42 @@ h3 { font-size: 1.3rem; }
   .wpp-rotulo { font-size: .85rem; }
   .wpp-flutuante { height: 54px; right: 14px; bottom: 14px; }
   .wpp-flutuante svg { width: 26px; height: 26px; }
+}
+
+/* ===== Fotos ===== */
+.foto-hero { margin: 0; border-radius: 32px; overflow: hidden; box-shadow: var(--sombra); transform: rotate(-1.5deg); border: 8px solid #fff; background: #fff; }
+.foto-hero img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: center; }
+.servico-foto { width: calc(100% + 4rem); max-width: none; margin: -2rem -2rem 1.2rem; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--raio) var(--raio) 0 0; }
+.servico { overflow: hidden; }
+.servico .servico-ico { margin-top: -3.2rem; position: relative; border: 4px solid #fff; }
+.servico.destaque .servico-ico { border-color: var(--verde); }
+.foto-para-quem { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--raio); margin-top: 1.6rem; box-shadow: var(--sombra); }
+.credito { opacity: .7; font-size: .8rem; }
+
+@media (max-width: 860px) {
+  .foto-hero { transform: none; border-width: 6px; }
+  .foto-hero img { aspect-ratio: 4 / 3.4; }
+}
+@media (max-width: 600px) {
+  .servico-foto { width: calc(100% + 2.8rem); margin: -1.6rem -1.4rem 1.2rem; }
+  .hero-arte { padding: 0 .4rem; }
+  .f1 { top: -12px; left: 4px; } .f2 { top: auto; bottom: 22%; right: -2px; } .f3 { bottom: -14px; left: 12px; }
+}
+
+/* Celular: foto logo depois do título */
+@media (max-width: 860px) {
+  .hero-inner { display: flex; flex-direction: column; gap: 0; }
+  .hero-texto { display: contents; }
+  .hero-texto > * { order: 5; }
+  .hero-texto .selo { order: 1; align-self: flex-start; }
+  .hero-texto h1 { order: 2; }
+  .hero-texto .hero-categoria { order: 3; }
+  .hero-arte { order: 4; margin: 1.6rem auto .4rem; }
+  .hero-texto .hero-sub { order: 5; }
+  .hero-texto .hero-acoes { order: 6; }
+  .hero-texto .hero-garantias { order: 7; }
+}
+@media (max-width: 600px) {
+  .foto-hero img { aspect-ratio: 16 / 11; }
+  .hero-sub { font-size: 1.05rem; margin: 1.2rem 0 1.4rem; }
 }
